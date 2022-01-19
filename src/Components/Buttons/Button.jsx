@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import "./components.css";
+import "./button.css";
 
 const STYLES = [
 	"btn--primary--solid",

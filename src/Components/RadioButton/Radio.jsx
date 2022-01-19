@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import "./components.css";
+import "./radioButton.css";
 
 export const Radio = ({ name, value, checked, onChange }) => {
 	return (

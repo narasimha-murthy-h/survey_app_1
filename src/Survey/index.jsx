@@ -2,10 +2,10 @@
 
 import "./survey.css";
 import titleCard from "../Assets/redBanner.png";
-import { Button } from "../Components/Button";
-import { Radio } from "../Components/Radio";
+import { Button } from "../Components/Buttons/Button";
+import { Radio } from "../Components/RadioButton/Radio";
 import { useEffect, useState } from "react";
-import { FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import validator from "validator";
 
 const Survey = () => {
