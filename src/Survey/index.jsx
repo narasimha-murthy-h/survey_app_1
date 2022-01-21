@@ -7,6 +7,7 @@ import { Radio } from "../Components/RadioButton/Radio";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
+import UseLocalStorage from "../Components/UseLocalStorage";
 
 const Survey = () => {
 	const [isDisabled, setIsDisabled] = useState(false);
@@ -14,17 +15,11 @@ const Survey = () => {
 	const [age, setAge] = useState(0);
 	const [email, setEmail] = useState("");
 	const [gender, setGender] = useState("Male");
+	const [submitSuccess, setSubmitSuccess] = useState(false);
 
-	const getSurveyDetails = () => {
-		const data = localStorage.getItem("Survey_Taken_By");
-		if (data) {
-			return JSON.parse(data);
-		} else {
-			return [];
-		}
-	};
+	const navigate = useNavigate();
 
-	const [surveyData, setSurveyData] = useState(getSurveyDetails);
+	const [surveyData, setSurveyData] = UseLocalStorage("Survey_Taken_By", "");
 
 	const [error, setError] = useState({
 		names: "",
@@ -104,11 +99,8 @@ const Survey = () => {
 		showData();
 
 		let survey = { names, age, email, gender };
-		setSurveyData([...surveyData, survey]);
-		setGender("Male");
-		setNames("");
-		setAge(0);
-		setEmail("");
+		setSurveyData(...surveyData, survey);
+		setSubmitSuccess(true);
 	};
 
 	const onReset = () => {
@@ -122,11 +114,9 @@ const Survey = () => {
 			age: "",
 		});
 	};
-
-	useEffect(() => {
-		localStorage.setItem("Survey_Taken_By", JSON.stringify(surveyData));
-	}, [surveyData]);
-
+	if (submitSuccess === true) {
+		navigate("/SurveyQuestions");
+	}
 	return (
 		<div className="mainContainer">
 			<div className="box">
