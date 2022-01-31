@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const UseLocalStorage = (key, initial) => {
+const useLocalStorage = (key, initial) => {
 	const [value, setValue] = useState(() => {
 		if (typeof window !== "undefined") {
 			const saved = window.localStorage.getItem(key);
@@ -20,4 +20,4 @@ const UseLocalStorage = (key, initial) => {
 	return [value, setValue];
 };
 
-export default UseLocalStorage;
+export default useLocalStorage;

@@ -11,7 +11,7 @@ function App() {
 		<Router>
 			<Routes>
 				<Route exact path="/" element={<Survey />} />
-				<Route exact path="/SurveyQuestions" element={<SurveyQuestions />} />
+				<Route exact path="/survey-questions" element={<SurveyQuestions />} />
 			</Routes>
 		</Router>
 	);

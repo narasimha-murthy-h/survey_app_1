@@ -7,7 +7,7 @@ import { Radio } from "../Components/RadioButton/Radio";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
-import UseLocalStorage from "../Components/UseLocalStorage";
+import useLocalStorage from "../Components/UseLocalStorage";
 
 const Survey = () => {
 	const [isDisabled, setIsDisabled] = useState(false);
@@ -19,7 +19,7 @@ const Survey = () => {
 
 	const navigate = useNavigate();
 
-	const [surveyData, setSurveyData] = UseLocalStorage("Survey_Taken_By", "");
+	const [surveyData, setSurveyData] = useLocalStorage("Survey_Taken_By", "");
 
 	const [error, setError] = useState({
 		names: "",
