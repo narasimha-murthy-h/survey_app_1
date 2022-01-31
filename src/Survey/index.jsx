@@ -6,7 +6,7 @@ import { Button } from "../Components/Buttons/Button";
 import { Radio } from "../Components/RadioButton/Radio";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import validator from "validator";
+import { regex } from "../Components/Common/CommonElement";
 import useLocalStorage from "../Components/UseLocalStorage";
 
 const Survey = () => {
@@ -33,8 +33,6 @@ const Survey = () => {
 		console.log("Gender: ", gender);
 		console.log("Email: ", email);
 	};
-	const regex =
-		/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 	const onSubmit = (e) => {
 		e.preventDefault();
@@ -115,7 +113,7 @@ const Survey = () => {
 		});
 	};
 	if (submitSuccess === true) {
-		navigate("/SurveyQuestions");
+		navigate("/survey-questions");
 	}
 	return (
 		<div className="mainContainer">
