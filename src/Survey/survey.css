@@ -1,21 +1,8 @@
 /** @format */
-:root {
-	--primary: #4628ff;
-	--warning: #ffd028;
-	--danger: #eb3f27;
-	--success: #13df27;
-	--white: #fdfdfd;
-	--dark: #181717;
-}
 
 .mainContainer {
 	text-align: center;
-	background: linear-gradient(
-		90deg,
-		rgba(25, 0, 5, 1) 0%,
-		rgba(121, 9, 32, 1) 63%,
-		rgba(255, 0, 35, 1) 100%
-	);
+	background: var(--global--color--Background);
 	height: 100%;
 	width: 100%;
 	align-items: center;
@@ -53,7 +40,7 @@
 	margin-right: auto;
 	border-radius: 10px;
 	border-style: double;
-	border-color: rgba(255, 255, 255, 0.5);
+	border-color: var(--global--color--White);
 	font-family: Arial;
 }
 
@@ -72,7 +59,7 @@
 }
 
 .label {
-	color: white;
+	color: var(--global--color--White);
 	font-family: "Roboto", sans-serif;
 	font-weight: 400;
 	font-size: 20px;
@@ -83,7 +70,7 @@
 	width: 200px;
 	border-radius: 5px;
 	margin: 10px 10px 10px 10px;
-	border: 2px solid var(--danger);
+	border: 2px solid var(--global--color--Danger);
 }
 
 .inputContainerAge {
@@ -91,18 +78,18 @@
 	width: 100px;
 	border-radius: 5px;
 	margin: 10px 10px 10px 10px;
-	border: 2px solid var(--danger);
+	border: 2px solid var(--global--color--Danger);
 }
 
 .inputContainerRadio {
-	color: white;
+	color: var(--global--color--White);
 	font-family: "Roboto", sans-serif;
 	font-weight: 400;
 	font-size: 16px;
 }
 
 .alertText {
-	color: rgba(255, 0, 35, 1);
+	color: var(--global--color--Danger);
 	font-family: "Roboto", sans-serif;
 	font-weight: 400;
 	font-size: 12px;
@@ -111,7 +98,7 @@
 .sampleStoredData {
 	height: 150px;
 	width: 500px;
-	background-color: rgba(255, 255, 255, 0.6);
+	background-color: var(--global--color--White, 0.6);
 	align-items: center;
 	justify-content: center;
 	text-align: center;
@@ -120,6 +107,6 @@
 	margin-right: auto;
 	border-radius: 10px;
 	border-style: double;
-	border-color: rgba(255, 255, 255, 0.5);
+	border-color: var(--global--color--White, 0.6);
 	font-family: Arial;
 }

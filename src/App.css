@@ -1,41 +1,16 @@
 /** @format */
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
-.app {
-	text-align: center;
-}
-
-.app-logo {
-	height: 40vmin;
-	pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	.app-logo {
-		animation: App-logo-spin infinite 20s linear;
-	}
-}
-
-.app-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-}
-
-.app-link {
-	color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
+:root {
+	--global--color--Background: linear-gradient(
+		90deg,
+		rgba(25, 0, 5, 1) 0%,
+		rgba(121, 9, 32, 1) 63%,
+		rgba(255, 0, 35, 1) 100%
+	);
+	--global--color--White: rgb(255, 255, 255);
+	--global--color--Danger: #eb3f27;
+	--global--color--Primary: #4628ff;
+	--global--color--Warning: #ffd028;
+	--global--color--Success: #13df27;
+	--global--color--Dark: #181717;
+	--global-text-font--Family: "Roboto", sans-serif;
 }

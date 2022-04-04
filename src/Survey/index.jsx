@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { regex } from "../Components/Common/CommonElement";
 import useLocalStorage from "../Components/UseLocalStorage";
+import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
+import * as Yup from "yup";
 
 const Survey = () => {
 	const [isDisabled, setIsDisabled] = useState(false);
@@ -17,15 +19,22 @@ const Survey = () => {
 	const [gender, setGender] = useState("Male");
 	const [submitSuccess, setSubmitSuccess] = useState(false);
 
+	const initialValues = { names, age, email, gender };
+
+	const validationSchema = Yup.object({
+		names: Yup.string().required("Please enter a name").min(5, "Too Short"),
+		age: Yup.number()
+			.required("Please enter a proper age")
+			.positive("Please enter a proper age")
+			.max(100, "Please enter a proper age"),
+		email: Yup.string()
+			.email("Invalid email format!")
+			.required("Enter a valid mail ID"),
+	});
+
 	const navigate = useNavigate();
 
 	const [surveyData, setSurveyData] = useLocalStorage("Survey_Taken_By", "");
-
-	const [error, setError] = useState({
-		names: "",
-		email: "",
-		age: "",
-	});
 
 	const showData = () => {
 		console.log("Name: ", names);
@@ -34,66 +43,12 @@ const Survey = () => {
 		console.log("Email: ", email);
 	};
 
+	const onReset = () => {
+		setGender("Male");
+	};
+
 	const onSubmit = (e) => {
 		e.preventDefault();
-
-		if (!names) {
-			setError((state) => ({
-				...state,
-				names: "Please enter a name",
-			}));
-			return;
-		}
-		if (names.length < 5) {
-			setError((state) => ({
-				...state,
-				names: "Too short",
-			}));
-			return;
-		} else {
-			setError((state) => ({
-				...state,
-				names: "",
-			}));
-		}
-
-		if (!email) {
-			setError((state) => ({
-				...state,
-				email: "Please enter a mail ID",
-			}));
-			return;
-		} else if (regex.test(email) === false) {
-			setError((state) => ({
-				...state,
-				email: "Enter a valid mail ID",
-			}));
-			return;
-		} else {
-			setError((state) => ({
-				...state,
-				email: "",
-			}));
-		}
-
-		if (age === 0 || age < 1) {
-			setError((state) => ({
-				...state,
-				age: "Please enter a proper age",
-			}));
-			return;
-		} else if (age > 100) {
-			setError((state) => ({
-				...state,
-				age: "Please enter a proper age",
-			}));
-			return;
-		} else {
-			setError((state) => ({
-				...state,
-				age: "",
-			}));
-		}
 		showData();
 
 		let survey = { names, age, email, gender };
@@ -101,17 +56,6 @@ const Survey = () => {
 		setSubmitSuccess(true);
 	};
 
-	const onReset = () => {
-		setGender("Male");
-		setNames("");
-		setAge(0);
-		setEmail("");
-		setError({
-			names: "",
-			email: "",
-			age: "",
-		});
-	};
 	if (submitSuccess === true) {
 		navigate("/survey-questions");
 	}
@@ -129,94 +73,101 @@ const Survey = () => {
 					/>
 					<div className="heading">Survey</div>
 
-					<form onSubmit={onSubmit}>
-						<div>
-							<label className="label">
-								Name :
-								<input
-									onChange={(e) => setNames(e.target.value)}
-									className="inputContainer"
-									name="names"
-									value={names}
-									placeholder="Name"
-								/>
-							</label>
-							{!!error.names && <div className="alertText">{error.names}</div>}
-						</div>
+					<Formik
+						initialValues={initialValues}
+						validationSchema={validationSchema}
+						onSubmit={onSubmit}
+					>
+						<Form>
+							<div>
+								<label className="label">
+									Name :
+									<Field
+										className="inputContainer"
+										name="names"
+										placeholder="Name"
+									/>
+								</label>
+								<ErrorMessage name="names">
+									{(msg) => <div className="alertText">{msg}</div>}
+								</ErrorMessage>
+							</div>
 
-						<div>
-							<label className="label">
-								Email :
-								<input
-									onChange={(e) => setEmail(e.target.value)}
-									className="inputContainer"
-									name="email"
-									value={email}
-									placeholder="Email"
-								/>
-							</label>
-							{!!error.email && <div className="alertText">{error.email}</div>}
-						</div>
+							<div>
+								<label className="label">
+									Email :
+									<Field
+										className="inputContainer"
+										name="email"
+										placeholder="Email"
+									/>
+								</label>
+								<ErrorMessage name="email">
+									{(msg) => <div className="alertText">{msg}</div>}
+								</ErrorMessage>
+							</div>
 
-						<div>
-							<label className="label">Gender :</label>
-							<span className="inputContainerRadio">
-								<Radio
-									onChange={(e) => setGender(e.target.value)}
-									name="gender"
-									value="Male"
-									checked={gender === "Male"}
-								/>
-								<Radio
-									onChange={(e) => setGender(e.target.value)}
-									name="gender"
-									value="Female"
-									checked={gender === "Female"}
-								/>
-								<Radio
-									onChange={(e) => setGender(e.target.value)}
-									name="gender"
-									value="Other"
-									checked={gender === "Other"}
-								/>
-							</span>
-						</div>
+							<div>
+								<label className="label">Gender :</label>
+								<span className="inputContainerRadio">
+									<Radio
+										onChange={(e) => setGender(e.target.value)}
+										name="gender"
+										value="Male"
+										checked={gender === "Male"}
+										reset="Male"
+									/>
+									<Radio
+										onChange={(e) => setGender(e.target.value)}
+										name="gender"
+										value="Female"
+										checked={gender === "Female"}
+									/>
+									<Radio
+										onChange={(e) => setGender(e.target.value)}
+										name="gender"
+										value="Other"
+										checked={gender === "Other"}
+									/>
+								</span>
+							</div>
 
-						<div>
-							<label className="label">
-								Age :
-								<input
-									type="number"
-									onChange={(e) => setAge(e.target.value)}
-									className="inputContainerAge"
-									name="age"
-									value={age}
-									placeholder="Age"
-								/>
-							</label>
-							{!!error.age && <div className="alertText">{error.age}</div>}
-						</div>
+							<div>
+								<label className="label">
+									Age :
+									<Field
+										type="number"
+										className="inputContainerAge"
+										name="age"
+										placeholder="Age"
+									/>
+								</label>
+								<ErrorMessage name="age">
+									{(msg) => <div className="alertText">{msg}</div>}
+								</ErrorMessage>
+							</div>
 
-						<div>
-							<Button
-								type="submit"
-								buttonStyle="btn--danger--solid"
-								buttonSize="btn--small"
-								disable={isDisabled}
-							>
-								Submit
-							</Button>
-							<Button
-								onClick={onReset}
-								type="button"
-								buttonStyle="btn--danger--outline"
-								buttonSize="btn--small"
-								disable={isDisabled}
-							>
-								Reset
-							</Button>
-						</div>
-					</form>
+							<div>
+								<Button
+									type="submit"
+									buttonStyle="btn--danger--solid"
+									buttonSize="btn--small"
+									disable={isDisabled}
+								>
+									Submit
+								</Button>
+								<Button
+									type="reset"
+									onClick={onReset}
+									buttonStyle="btn--danger--outline"
+									buttonSize="btn--small"
+									disable={isDisabled}
+								>
+									Reset
+								</Button>
+							</div>
+						</Form>
+					</Formik>
 				</div>
 			</div>
 		</div>
