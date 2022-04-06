@@ -1,16 +1,17 @@
-/** @format */
 :root {
-	--global--color--Background: linear-gradient(
-		90deg,
-		rgba(25, 0, 5, 1) 0%,
-		rgba(121, 9, 32, 1) 63%,
-		rgba(255, 0, 35, 1) 100%
-	);
-	--global--color--White: rgb(255, 255, 255);
-	--global--color--Danger: #eb3f27;
-	--global--color--Primary: #4628ff;
-	--global--color--Warning: #ffd028;
-	--global--color--Success: #13df27;
-	--global--color--Dark: #181717;
-	--global-text-font--Family: "Roboto", sans-serif;
+  --global--color--Background: linear-gradient(90deg,
+      rgba(25, 0, 5, 1) 0%,
+      rgba(121, 9, 32, 1) 63%,
+      rgba(255, 0, 35, 1) 100%);
+  --global--color--White: rgb(255, 255, 255);
+  --global--color--Danger: #eb3f27;
+  --global--color--Primary: #4628ff;
+  --global--color--Warning: #ffd028;
+  --global--color--Success: #13df27;
+  --global--color--Dark: #181717;
+  --global-text-font--Family: "Roboto", sans-serif;
+  --global-font-size-16: 16px;
+  --global-font-size-18: 18px;
+  --global-font-size-20: 20px;
+  --global--color--Border: 2px solid #d8e4e2;
 }

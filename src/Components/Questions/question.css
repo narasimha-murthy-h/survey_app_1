@@ -1,0 +1,23 @@
+.questionNumber {
+  color: var(--global--color--White);
+  font-family: var(--global-text-font--Family);
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.question {
+  color: var(--global--color--White);
+  font-family: var(--global-text-font--Family);
+  font-weight: 400;
+  font-size: 20px;
+  margin: 15px 15px 15px 15px;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.inputContainerRadio {
+  color: var(--global--color--White);
+  font-family: var(--global-text-font--Family);
+  font-weight: 400;
+  font-size: 16px;
+}

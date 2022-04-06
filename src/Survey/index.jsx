@@ -1,28 +1,25 @@
-/** @format */
-
 import "./survey.css";
 import titleCard from "../Assets/redBanner.png";
 import { Button } from "../Components/Buttons/Button";
 import { Radio } from "../Components/RadioButton/Radio";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { regex } from "../Components/Common/CommonElement";
 import useLocalStorage from "../Components/UseLocalStorage";
 import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import * as Yup from "yup";
 
 const Survey = () => {
 	const [isDisabled, setIsDisabled] = useState(false);
-	const [names, setNames] = useState("");
+	const [name, setName] = useState("");
 	const [age, setAge] = useState(0);
 	const [email, setEmail] = useState("");
 	const [gender, setGender] = useState("Male");
 	const [submitSuccess, setSubmitSuccess] = useState(false);
 
-	const initialValues = { names, age, email, gender };
+	const initialValues = { name, age, email, gender };
 
 	const validationSchema = Yup.object({
-		names: Yup.string().required("Please enter a name").min(5, "Too Short"),
+		name: Yup.string().required("Please enter a name").min(5, "Too Short"),
 		age: Yup.number()
 			.required("Please enter a proper age")
 			.positive("Please enter a proper age")
@@ -37,7 +34,7 @@ const Survey = () => {
 	const [surveyData, setSurveyData] = useLocalStorage("Survey_Taken_By", "");
 
 	const showData = () => {
-		console.log("Name: ", names);
+		console.log("Name: ", name);
 		console.log("Age: ", age);
 		console.log("Gender: ", gender);
 		console.log("Email: ", email);
@@ -47,11 +44,10 @@ const Survey = () => {
 		setGender("Male");
 	};
 
-	const onSubmit = (e) => {
-		e.preventDefault();
+	const onSubmit = () => {
 		showData();
 
-		let survey = { names, age, email, gender };
+		let survey = { name, age, email, gender };
 		setSurveyData(...surveyData, survey);
 		setSubmitSuccess(true);
 	};
@@ -63,14 +59,7 @@ const Survey = () => {
 		<div className="mainContainer">
 			<div className="box">
 				<div className="surveyContainer">
-					<img
-						src={titleCard}
-						style={{
-							width: 400,
-							height: 100,
-							position: "relative",
-						}}
-					/>
+					<img src={titleCard} className="img" />
 					<div className="heading">Survey</div>
 
 					<Formik
@@ -84,11 +73,11 @@ const Survey = () => {
 									Name :
 									<Field
 										className="inputContainer"
-										name="names"
+										name="name"
 										placeholder="Name"
 									/>
 								</label>
-								<ErrorMessage name="names">
+								<ErrorMessage name="name">
 									{(msg) => <div className="alertText">{msg}</div>}
 								</ErrorMessage>
 							</div>

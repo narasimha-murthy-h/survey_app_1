@@ -1,83 +1,81 @@
-/** @format */
-
 .btn {
-	font-family: var(--global-text-font--Family);
-	font-weight: 400;
-	border-radius: 10px;
-	cursor: pointer;
-	transition: transform 0.3s ease;
-	margin: 10px 10px 10px 10px;
+  font-family: var(--global-text-font--Family);
+  font-weight: 400;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 10px;
 }
 
 .btn:hover {
-	transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 .btn:disabled {
-	cursor: not-allowed;
-	transform: translate(0px);
-	opacity: 0.5;
+  cursor: not-allowed;
+  transform: translate(0px);
+  opacity: 0.5;
 }
 
 .btn--primary--solid {
-	background-color: var(--global--color--Primary);
-	color: var(--global--color--White);
-	border: none;
+  background-color: var(--global--color--Primary);
+  color: var(--global--color--White);
+  border: none;
 }
 
 .btn--warning--solid {
-	background-color: var(--global--color--Warning);
-	color: var(--global--color--Dark);
-	border: none;
+  background-color: var(--global--color--Warning);
+  color: var(--global--color--Dark);
+  border: none;
 }
 
 .btn--danger--solid {
-	background-color: var(--global--color--Danger);
-	color: var(--global--color--White);
-	border: none;
+  background-color: var(--global--color--Danger);
+  color: var(--global--color--White);
+  border: none;
 }
 
 .btn--success--solid {
-	background-color: var(--global--color--Success);
-	color: var(--global--color--White);
-	border: none;
+  background-color: var(--global--color--Success);
+  color: var(--global--color--White);
+  border: none;
 }
 
 .btn--primary--outline {
-	background-color: var(--global--color--White);
-	color: var(--global--color--Primary);
-	border: 2px solid var(--global--color--Primary);
+  background-color: var(--global--color--White);
+  color: var(--global--color--Primary);
+  border: 2px solid var(--global--color--Primary);
 }
 
 .btn--success--outline {
-	background-color: var(--global--color--White);
-	color: var(--global--color--Success);
-	border: 2px solid var(--global--color--Success);
+  background-color: var(--global--color--White);
+  color: var(--global--color--Success);
+  border: 2px solid var(--global--color--Success);
 }
 
 .btn--warning--outline {
-	background-color: var(--global--color--Dark);
-	color: var(--global--color--Warning);
-	border: 2px solid var(--global--color--Warning);
+  background-color: var(--global--color--Dark);
+  color: var(--global--color--Warning);
+  border: 2px solid var(--global--color--Warning);
 }
 
 .btn--danger--outline {
-	background-color: var(--global--color--White);
-	color: var(--global--color--Danger);
-	border: 2px solid var(--global--color--Danger);
+  background-color: var(--global--color--White);
+  color: var(--global--color--Danger);
+  border: 2px solid var(--global--color--Danger);
 }
 
 .btn--small {
-	padding: 8px 15px;
-	font-size: 16px;
+  padding: 8px 15px;
+  font-size: var(--global-font-size-16);
 }
 
 .btn--medium {
-	padding: 10px 20px;
-	font-size: 18px;
+  padding: 10px 20px;
+  font-size: var(--global-font-size-18);
 }
 
 .btn--large {
-	padding: 15px 30px;
-	font-size: 20px;
+  padding: 15px 30px;
+  font-size: var(--global-font-size-20);
 }
