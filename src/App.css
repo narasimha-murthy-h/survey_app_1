@@ -4,6 +4,8 @@
       rgba(121, 9, 32, 1) 63%,
       rgba(255, 0, 35, 1) 100%);
   --global--color--White: rgb(255, 255, 255);
+  --global--color--Black: rgb(0, 0, 0);
+  --global--color--BlackFaded: rgba(0, 0, 0, 0.6);
   --global--color--Danger: #eb3f27;
   --global--color--Primary: #4628ff;
   --global--color--Warning: #ffd028;
@@ -14,4 +16,18 @@
   --global-font-size-18: 18px;
   --global-font-size-20: 20px;
   --global--color--Border: 2px solid #d8e4e2;
+  --global--heading-font-40: bold 40px Sans-Serif;
+  --global--text-shadow-Heading: 1px 0px 1px #ccc,
+    0px 1px 1px #eee,
+    2px 1px 1px #ccc,
+    1px 2px 1px #eee,
+    3px 2px 1px #ccc,
+    2px 3px 1px #eee,
+    4px 3px 1px #ccc,
+    3px 4px 1px #eee,
+    5px 4px 1px #ccc,
+    4px 5px 1px #eee,
+    6px 5px 1px #ccc,
+    5px 6px 1px #eee,
+    7px 6px 1px #ccc;
 }
