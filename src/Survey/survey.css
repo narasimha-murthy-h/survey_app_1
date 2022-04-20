@@ -1,0 +1,95 @@
+.main__container {
+  text-align: center;
+  background: var(--global--color--Background);
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.box {
+  border: var(--global--color--Border);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 15px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+}
+
+.survey__container {
+  height: 450px;
+  width: 500px;
+  background-color: var(--global--color--BlackFaded);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  border-style: double;
+  border-color: var(--global--color--White);
+  font-family: var(--global-text-font--Family);
+}
+
+.heading {
+  text-align: center;
+  position: relative;
+  bottom: 85px;
+  text-align: center;
+  font: var(--global--heading-font-40);
+  color: var(--global--color--Black);
+  text-shadow: var(--global--text-shadow-Heading);
+  text-transform: uppercase;
+}
+
+.label {
+  color: var(--global--color--White);
+  font-family: var(--global-text-font--Family);
+  font-weight: 400;
+  font-size: var(--global-font-size-20);
+}
+
+.input__container {
+  height: 25px;
+  width: 200px;
+  border-radius: 5px;
+  margin: 10px;
+  border: 2px solid var(--global--color--Danger);
+}
+
+.input__container--age {
+  height: 25px;
+  width: 100px;
+  border-radius: 5px;
+  margin: 10px;
+  border: 2px solid var(--global--color--Danger);
+}
+
+.input__container--radio {
+  color: var(--global--color--White);
+  font-family: var(--global-text-font--Family);
+  font-weight: 400;
+  font-size: var(--global-font-size-16);
+}
+
+.alertText {
+  color: var(--global--color--Danger);
+  font-family: var(--global-text-font--Family);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.img {
+  width: 400px;
+  height: 100px;
+  position: relative;
+}

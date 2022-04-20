@@ -1,0 +1,45 @@
+.question {
+  color: var(--global--color--White);
+  font-family: var(--global-text-font--Family);
+  font-weight: 400;
+  font-size: 20px;
+  margin: 25px 45px 25px 45px;
+  position: relative;
+  justify-content: center;
+  justify-self: center;
+  text-align: start;
+  align-items: center;
+  bottom: 40px;
+}
+
+.question__number {
+  color: var(--global--color--White);
+  font-family: var(--global-text-font--Family);
+  font-weight: bold;
+  font-size: 30px;
+  position: relative;
+  bottom: 40px;
+  border: 2px solid var(--global--color--White);
+}
+
+.input__container--radioQuestion {
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  bottom: 40px;
+  color: var(--global--color--White);
+}
+
+.div--radio {
+  position: relative;
+  justify-content: center;
+  justify-self: center;
+  text-align: start;
+  align-items: center;
+  margin: 0px 45px 0px 45px;
+}
+
+.btn__container {
+  bottom: 30px;
+  position: relative;
+}
